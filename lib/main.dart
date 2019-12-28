@@ -5,27 +5,26 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-
-@override
+  @override
   State<StatefulWidget> createState() {
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp> {
-  var questionIndex = 0;
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
 
-  void answerQuestion(){
+  void _answerQuestion() {
     setState(() {
-      questionIndex += 1;
-    }); 
-   print(questionIndex);
+      _questionIndex += 1;
+    });
+    print(_questionIndex);
   }
 
   @override
   Widget build(BuildContext context) {
     var questions = ['Question 1', 'Question 2', 'Question 3'];
-    
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -33,10 +32,10 @@ class MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Text(questions[questionIndex]),
+            Text(questions[_questionIndex]),
             RaisedButton(
               child: Text(questions[0]),
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
             ),
             RaisedButton(
               child: Text(questions[1]),
@@ -44,7 +43,7 @@ class MyAppState extends State<MyApp> {
             ),
             RaisedButton(
               child: Text(questions[2]),
-              onPressed: (){
+              onPressed: () {
                 print("Option # Three chosen");
               },
             ),
