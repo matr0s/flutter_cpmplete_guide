@@ -13,14 +13,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var questions = ['Question 1', 'Question 2', 'Question 3'];
+    
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('My super App'),
+          title: Text('My First super App'),
         ),
         body: Column(
           children: [
-            Text('My questions'),
+            Text('My questions to you'),
             RaisedButton(
               child: Text(questions[0]),
               onPressed: answerQuestion,
@@ -31,7 +32,9 @@ class MyApp extends StatelessWidget {
             ),
             RaisedButton(
               child: Text(questions[2]),
-              onPressed: answerQuestion,
+              onPressed: (){
+                print("Option # Three chosen");
+              },
             ),
           ],
         ),
