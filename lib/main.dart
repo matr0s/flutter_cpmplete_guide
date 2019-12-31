@@ -15,21 +15,20 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-final questions = const [
-      {
-        'questionText': 'What is your fave color?',
-        'answers': ['Red', 'White', 'Green'],
-      },
-      {
-        'questionText': 'What is your fave car?',
-        'answers': ['BMW', 'AZLK', 'KIA', 'Ford'],
-      },
-      {
-        'questionText': 'What is your fave song?',
-        'answers': ['DRDre', 'XAC', 'Green Gray'],
-      },
-    ];
-
+  final questions = const [
+    {
+      'questionText': 'What is your fave color?',
+      'answers': ['Red', 'White', 'Green'],
+    },
+    {
+      'questionText': 'What is your fave car?',
+      'answers': ['BMW', 'AZLK', 'KIA', 'Ford'],
+    },
+    {
+      'questionText': 'What is your fave song?',
+      'answers': ['DRDre', 'XAC', 'Green Gray'],
+    },
+  ];
 
   var _questionIndex = 0;
 
@@ -38,8 +37,8 @@ final questions = const [
       _questionIndex += 1;
     });
     print(_questionIndex);
-   if(_questionIndex < questions.length) {
-print('We still have questions in line');
+    if (_questionIndex < questions.length) {
+      print('We still have questions in line');
     }
   }
 
@@ -50,7 +49,7 @@ print('We still have questions in line');
         appBar: AppBar(
           title: Text('My First super App'),
         ),
-        body: Column(
+        body: _questionIndex < questions.length ? Column(
           children: [
             Question(
               questions[_questionIndex]['questionText'],
@@ -60,7 +59,9 @@ print('We still have questions in line');
               return Answer(_answerQuestion, answer);
             }).toList()
           ],
-        ),
+        ) : Center(
+          child: Text('You did it'),
+        ) ,
       ),
     );
   }
